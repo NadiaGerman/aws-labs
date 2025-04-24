@@ -1,7 +1,7 @@
 # Voting System
 
 ## Description
-A Python script that allows users to vote for one of several candidates. The program tracks the number of votes for each candidate and prints the final results.
+This project simulates a simple voting system where users can vote for candidates. It ensures fair voting and calculates the winner.
 
 ## How to Run
 

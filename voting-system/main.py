@@ -1,43 +1,38 @@
-# Voting System
-# This script allows users to vote for candidates and displays the final vote count.
+# Voting System - Simulates a simple voting process
 
-def display_candidates(candidates):
-    print("Available candidates:")
-    for idx, candidate in enumerate(candidates, start=1):
-        print(f"{idx}. {candidate}")
+# Dictionary to store votes
+votes = {
+    "Alice": 0,
+    "Bob": 0,
+    "Charlie": 0
+}
 
-def get_vote(candidates):
-    try:
-        choice = int(input("Enter the number of your chosen candidate: "))
-        if 1 <= choice <= len(candidates):
-            return candidates[choice - 1]
-        else:
-            print("Invalid choice. Please choose a number from the list.")
-            return None
-    except ValueError:
-        print("Please enter a valid number.")
-        return None
+# Welcome message
+print("Welcome to the Voting System!")
+print("Candidates are:", ", ".join(votes.keys()))
 
-def main():
-    candidates = ["Alice", "Bob", "Charlie"]
-    votes = {name: 0 for name in candidates}
+# Number of voters
+num_voters = int(input("Enter the number of voters: "))
 
-    print("Welcome to the Voting System!")
-    display_candidates(candidates)
+# Voting loop
+for i in range(num_voters):
+    vote = input(f"Voter #{i + 1}, enter your vote: ")
+    if vote in votes:
+        votes[vote] += 1
+        print("Vote recorded!\n")
+    else:
+        print("Invalid candidate. Vote not counted.\n")
 
-    while True:
-        vote = get_vote(candidates)
-        if vote:
-            votes[vote] += 1
-            print(f"Thank you! Your vote for {vote} has been recorded.")
+# Print final results
+print("\n--- Voting Results ---")
+for candidate, count in votes.items():
+    print(f"{candidate}: {count} vote(s)")
 
-        another = input("Do you want to add another vote? (yes/no): ").lower()
-        if another != "yes":
-            break
+# Determine the winner(s)
+max_votes = max(votes.values())
+winners = [name for name, count in votes.items() if count == max_votes]
 
-    print("\nFinal Vote Counts:")
-    for name, count in votes.items():
-        print(f"{name}: {count} votes")
-
-if __name__ == "__main__":
-    main()
+if len(winners) == 1:
+    print(f"\nWinner: {winners[0]}")
+else:
+    print(f"\nIt's a tie between: {', '.join(winners)}")
