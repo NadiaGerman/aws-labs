@@ -44,6 +44,20 @@ The goal of this lab was to retrieve the human preproinsulin sequence, clean it,
 - Linux commands: `pwd`, `ls`, `cat`, `wc -m`
 - Python 3 scripting
 
+# String Sequence and Molecular Weight Calculation Lab
+
+This project works with human insulin string sequences and calculates its molecular weight using basic Python features.
+
+## Tasks Completed
+- Stored parts of the insulin sequence in string variables
+- Printed sequence parts to the console
+- Calculated rough molecular weight of insulin based on amino acid composition
+- Calculated the error percentage compared to the real molecular weight
+
+## Main File
+- `string-insulin.py`: Python script for string manipulations, printing, and molecular weight calculation.
+
+
 ## Author
 
 Nadia  Gilgof-German
